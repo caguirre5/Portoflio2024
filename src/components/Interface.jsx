@@ -1,4 +1,9 @@
 import {motion} from 'framer-motion'
+import {useState, useEffect} from 'react'
+import {AiFillEye, AiFillGithub} from 'react-icons/ai'
+import {motion} from 'framer-motion'
+
+
 
 const Section = (props) => {
     const {children} = props;
@@ -130,6 +135,15 @@ const SkillsSection = () => {
             </motion.div>
         </Section>
     )
+}
+
+const WorkSection = () => {
+    <>
+        <h2 className='head-text'>My Creative <span>Portfolio</span></h2>
+        <div className='app__work-filter'>
+            {['UI/UX', 'Web App', 'Mobile App']}
+        </div>
+    </>
 }
 
 const ContactSection = () => {
