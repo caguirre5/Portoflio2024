@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-    <Canvas shadows camera={{ position: [-10, 3, 20], fov: 20 }}>
+    <Canvas shadows camera={{ position: [10, 3, 2], fov: 50}}>
       <color attach="background" args={["#ececec"]} />
       <ScrollControls pages={4} damping={0.1}>
         <ScrollManager section={section} onSectionChange ={setSection}/>

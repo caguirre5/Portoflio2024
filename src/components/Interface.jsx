@@ -2,7 +2,7 @@ import {motion} from 'framer-motion'
 import {useState, useEffect} from 'react'
 import {AiFillEye, AiFillGithub} from 'react-icons/ai'
 
-
+import data from '../worl.json'
 
 const Section = (props) => {
     const {children} = props;
@@ -137,12 +137,44 @@ const SkillsSection = () => {
 }
 
 const WorkSection = () => {
-    <>
-        <h2 className='head-text'>My Creative <span>Portfolio</span></h2>
-        <div className='app__work-filter'>
-            {['UI/UX', 'Web App', 'Mobile App']}
-        </div>
-    </>
+    const [activeFilter, setActiveFilter] = useState('All')
+
+    const [animateCard, setAnimateCard] = useState({y:0, opacity:1})
+
+    const handleWorkFilter = (item) => {
+
+    }
+
+    return (
+        <Section>
+            <h2 className='head-text'>My Creative <span>Portfolio</span></h2>
+            <div className='flex justify-center space-x-4'>
+                {['UI/UX', 'Web App', 'Mobile App'].map((item, index) => (
+                    <div 
+                        key={index}
+                        onClick={() => handleWorkFilter(item)}
+                        className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active':''}`}
+                    >
+                        {item}
+                    </div>
+                ))}
+            </div>
+            <motion.div
+                animate={animateCard}
+                transition={{duration:0.5, delayChildren:0.5}}
+                className='app__work-portfolio'
+            >
+                {data.map((project) => (
+                    (project.category &&
+                        <div id={project.id}>
+                            <h2>{project.title}</h2>
+                        </div>    
+                    )
+                ))}
+
+            </motion.div>
+        </Section>
+    )
 }
 
 const ContactSection = () => {
@@ -235,6 +267,7 @@ export const Interface = () => {
         <h1>About</h1>
     </Section>
     <SkillsSection/>
+    <WorkSection/>
     <ContactSection/>
     </div>
   )
