@@ -1,6 +1,9 @@
 import {motion} from 'framer-motion'
 import {useState, useEffect} from 'react'
 import {AiFillEye, AiFillGithub} from 'react-icons/ai'
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import data from '../worl.json'
 
@@ -145,6 +148,14 @@ const WorkSection = () => {
 
     }
 
+    const settings = {
+        dots : true,
+        infinite : true,
+        speed: 500,
+        slidesToShow:3,
+        slidesToScroll:3
+    }
+
     return (
         <Section>
             <h2 className='head-text'>My Creative <span>Portfolio</span></h2>
@@ -159,20 +170,37 @@ const WorkSection = () => {
                     </div>
                 ))}
             </div>
-            <motion.div
+
+            {/* Carousel div */}
+            <Slider {...settings}
                 animate={animateCard}
                 transition={{duration:0.5, delayChildren:0.5}}
-                className='app__work-portfolio'
+                className='flex flex-row w-full bg-slate-400 justify-center'
             >
+                
                 {data.map((project) => (
                     (project.category &&
-                        <div id={project.id}>
-                            <h2>{project.title}</h2>
-                        </div>    
+                        <div id={project.id} className="m-3 w-96 bg-white rounded-lg shadow-md overflow-hidden">
+                            <div className="relative h-56 p-3">
+                                <img
+                                src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                                alt="card-image"
+                                className="w-full h-full object-cover rounded-lg"
+                                />
+                            </div>
+                            <div className="p-4">
+                                <h5 className="text-lg font-semibold text-blue-gray mb-2">{project.title}</h5>
+                                <p className="text-sm text-blue-gray">
+                                {project.description}
+                                </p>
+                            </div>
+                            <div className="p-4 pt-0">
+                                <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-200">Read More</button>
+                            </div>
+                        </div>
                     )
                 ))}
-
-            </motion.div>
+                </Slider>
         </Section>
     )
 }
@@ -238,7 +266,7 @@ const skills = [
         level: 80,
     },
     {
-        title: "SQL",
+        title: "SQL", 
         level: 60,
     },
     {
@@ -265,6 +293,7 @@ export const Interface = () => {
     <WelcomeSection/>
     <Section>
         <h1>About</h1>
+        <p>Most of the projects I have carried out, have gone through a design process in which I apply the most efficient UX/UI concepts and tools to build projects with modern web technologies that intends to have a positive impact on users.</p>
     </Section>
     <SkillsSection/>
     <WorkSection/>
