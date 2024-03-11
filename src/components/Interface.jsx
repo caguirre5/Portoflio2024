@@ -144,8 +144,8 @@ const WorkSection = () => {
 
     const [animateCard, setAnimateCard] = useState({y:0, opacity:1})
 
-    const handleWorkFilter = (item) => {
-
+    const handleWorkFilter = (category) => {
+        setActiveFilter(category);
     }
 
     const settings = {
@@ -158,49 +158,50 @@ const WorkSection = () => {
 
     return (
         <Section>
-            <h2 className='head-text'>My Creative <span>Portfolio</span></h2>
+            <h2 className='text-2xl mb-3'>My Creative <span>Portfolio</span></h2>
             <div className='flex justify-center space-x-4'>
                 {['UI/UX', 'Web App', 'Mobile App'].map((item, index) => (
                     <div 
                         key={index}
                         onClick={() => handleWorkFilter(item)}
-                        className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active':''}`}
+                        className={`bg-blue-500 px-5 py-2 rounded-lg ${activeFilter === item ? 'bg-red-500':''}`}
                     >
                         {item}
                     </div>
                 ))}
             </div>
 
-            {/* Carousel div */}
             <Slider {...settings}
                 animate={animateCard}
                 transition={{duration:0.5, delayChildren:0.5}}
-                className='flex flex-row w-full bg-slate-400 justify-center'
+                className=' w-3/4 m-auto '
             >
-                
-                {data.map((project) => (
-                    (project.category &&
-                        <div id={project.id} className="m-3 w-96 bg-white rounded-lg shadow-md overflow-hidden">
+                {data
+                .filter(project => !activeFilter || project.category === activeFilter ).map(project => {
+                    console.log(project)
+                    return(
+                        <div key={project.id} className=" bg-white rounded-lg shadow-md">
                             <div className="relative h-56 p-3">
-                                <img
+                            <img
                                 src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
                                 alt="card-image"
                                 className="w-full h-full object-cover rounded-lg"
-                                />
+                            />
                             </div>
-                            <div className="p-4">
-                                <h5 className="text-lg font-semibold text-blue-gray mb-2">{project.title}</h5>
-                                <p className="text-sm text-blue-gray">
+                            <div className="p-4 w-full align-middle justify-center flex flex-col">
+                            <h5 className="text-lg font-semibold text-blue-gray mb-2">{project.title}</h5>
+                            <p className="text-sm text-blue-gray">
                                 {project.description}
-                                </p>
+                            </p>
                             </div>
                             <div className="p-4 pt-0">
-                                <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-200">Read More</button>
+                            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-200">Read More</button>
                             </div>
                         </div>
                     )
-                ))}
-                </Slider>
+                
+                        })}
+            </Slider>
         </Section>
     )
 }

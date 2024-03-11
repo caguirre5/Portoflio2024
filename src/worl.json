@@ -1,5 +1,8 @@
 [
     { "id": 1, "title": "Proyecto 1", "category": "UI/UX", "description": "lorem ipsum" },
     { "id": 2, "title": "Proyecto 2", "category": "Web App", "description": "lorem ipsum" },
-    { "id": 3, "title": "Proyecto 3", "category": "Mobile App", "description": "lorem ipsum" }
+    { "id": 3, "title": "Proyecto 3", "category": "Mobile App", "description": "lorem ipsum" },
+    { "id": 4, "title": "Proyecto 4", "category": "UI/UX", "description": "lorem ipsum" },
+    { "id": 5, "title": "Proyecto 5", "category": "Web App", "description": "lorem ipsum" },
+    { "id": 6, "title": "Proyecto 6", "category": "Mobile App", "description": "lorem ipsum" }
 ]
