@@ -4,6 +4,22 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.gap-after': {
+          position: 'relative',
+          '&::after': {
+            content: '""',
+            display: 'block',
+            height: '10px',
+            width: '100%',
+          },
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    },
+  ],
 }
 

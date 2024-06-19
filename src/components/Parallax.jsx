@@ -21,34 +21,35 @@ export default function Parallax() {
   const backgroundY4 = useTransform(scrollYProgress, [0, 1], ["0%", "70%"]);
   const backgroundY5 = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
   const backgroundY6 = useTransform(scrollYProgress, [0, 1], ["0%", "50%%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
+  const textXR = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
+  const textXL = useTransform(scrollYProgress, [0, 1], ["0%", "-150%"]);
 
   return (
     <div 
       ref={ref}
       className="w-full h-screen overflow-hidden relative grid place-items-center bg-[#77CFF2]"
     >
-        <motion.div
+        <div
           className='relative z-[1] flex flex-col items-center'
         >
-          <h1 
+          <motion.h1 
             style={{
-              y:textY
+              x:textXL
             }}
             className="font-bold text-white text-7xl md:text-9xl my-2 text-center"
           >
               Cristian Aguirre
-          </h1>
+          </motion.h1>
           
-          <h3 
+          <motion.h3 
             className='font-bold text-white text-3xl md:text-5xl my-2'
             style={{
-              y:textY
+              x:textXR
             }}
           >
             Software Developer
-          </h3>
-        </motion.div>
+          </motion.h3>
+        </div>
 
         <motion.div
             className="absolute inset-0 z-0"
