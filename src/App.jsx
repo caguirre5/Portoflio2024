@@ -6,15 +6,22 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Facts from "./components/Facts";
 import Work from "./components/Work";
+import Contact from "./components/Contact";
 
 
 function App() {
-  const [section, setSection] = useState(0)
+  const [section, setSection] = useState("home")
   const [menuOpened, setMenuOpened] = useState(false)
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setMenuOpened(false)
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
   }, [section])
 
   useEffect(() => {
@@ -35,9 +42,7 @@ function App() {
           <Facts/>
           <Skills/>
           <Work/>
-          <div className="w-full h-screen bg-[#0c1926]">
-            
-          </div>
+          <Contact/>
           <Menu onSectionChange = {setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened}/>
         </>
       )}

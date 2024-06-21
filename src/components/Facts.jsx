@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic, faBasketball, faPalette, faPersonHiking, faGamepad } from '@fortawesome/free-solid-svg-icons';
-
+import Data from '../PageContent.json'
 
 const Facts = () => {
   return (
@@ -8,13 +8,16 @@ const Facts = () => {
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2 lg:gap-6 w-11/12 max-w-screen-lg">
             {/* First Row */}
             <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
-                <h2 className="text-2xl font-bold pb-4">Web Development</h2>
+                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_1.title}</h2>
+                <p>{Data.about.facts.fact_1.text}</p>
             </div>
             <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
-                <h2 className="text-2xl font-bold pb-4">Mobile Apps</h2>
+                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_2.title}</h2>
+                <p>{Data.about.facts.fact_2.text}</p>
             </div>
             <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
-                <h2 className="text-2xl font-bold pb-4">UX Design</h2>
+                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_3.title}</h2>
+                <p>{Data.about.facts.fact_3.text}</p>
             </div>
 
             {/* Second Row */}
@@ -43,7 +46,10 @@ const Facts = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8"></div>
+            <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
+                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_4.title}</h2>
+                <p>{Data.about.facts.fact_4.text}</p>
+            </div>
         </div>
     </div>
   );

@@ -1,0 +1,48 @@
+{
+    "landing": {
+        "title":"Cristian Aguirre",
+        "subtitle":"Software Developer"
+    },
+    "about":{
+        "title":"Hi! I'm Cristian",
+        "description":"I am a passionate software developer from Guatemala, specializing in frontend development for web and mobile applications. My career has focused on creating high-quality user experiences and I am currently delving into the world of Data Science. Additionally, I have explored game development and augmented reality, further expanding my skill set. In my personal life, I have a deep appreciation for the arts and music, and I enjoy staying active through various physical activities. My creative pursuits and love for the outdoors inspire my approach to innovative and dedicated work in all my projects.",
+        "facts": {
+            "fact_1": {
+                "title":"Web Development",
+                "text":"I specialize in developing user-centric web interfaces that prioritize intuitive usability and aesthetic appeal. My approach involves crafting scalable and flexible web solutions that meet diverse client needs, ensuring each project is both innovative and effective."
+            },
+            "fact_2": {
+                "title":"Mobile Apps",
+                "text":"I create engaging mobile applications that focus on delivering seamless user experiences across various devices. My work emphasizes the integration of user-friendly design and functional excellence to produce apps that are both informative and interactive."
+            },
+            "fact_3": {
+                "title":"UX Design",
+                "text":"My UX design practice centers on understanding user behaviors and crafting interfaces that enhance user interaction and satisfaction. Through continuous user testing and feedback, I refine designs to create optimal user experiences that are both visually appealing and easy to navigate."
+            },
+            "fact_4": {
+                "title":"Artificial Intelligence",
+                "text":"I am deeply passionate about exploring the potential of artificial intelligence as an emerging field. Motivated to continually expand my knowledge and skills, I focus on understanding and applying AI to solve complex problems and enhance data-driven decision-making processes."
+            }
+        }
+    },
+    "work": [
+        { "id": 1, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Caribbean Goods", "imagePortrait": "WEB_Caribbean", "url": "", "icon": "faRobot" },
+        { "id": 2, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Old Portfolio", "imagePortrait": "WEB_Portfolio_1", "url": "https://caguirre5.github.io/PortfolioProject/" },
+        { "id": 3, "category": "WEB DEVELOPMENT", "description": "algo", "title": "ICE Project", "imagePortrait": "WEB_ICE", "url": "" },
+        { "id": 4, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Tesla Clone", "imagePortrait": "WEB_Tesla" },
+        { "id": 5, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Simulator", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png", "url": "" },
+        { "id": 6, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Course", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png", "url": "" },
+        { "id": 7, "category": "UX DESIGN", "description": "algo", "title": "Portfolio", "imagePortrait": "UX_Portfolio_1" },
+        { "id": 8, "category": "UX DESIGN", "description": "algo", "title": "Pedidotes Ya", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 9, "category": "UX DESIGN", "description": "algo", "title": "Movies App", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 10, "category": "UX DESIGN", "description": "algo", "title": "Steam for Moms", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 11, "category": "UX DESIGN", "description": "algo", "title": "Traveling App", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 12, "category": "UX DESIGN", "description": "algo", "title": "Whatsapp Pay", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 13, "category": "DATA SCIENCE", "description": "algo", "title": "Card 13", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 14, "category": "DATA SCIENCE", "description": "algo", "title": "Card 14", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 15, "category": "DATA SCIENCE", "description": "algo", "title": "Card 15", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 16, "category": "DATA SCIENCE", "description": "algo", "title": "Card 16", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 17, "category": "DATA SCIENCE", "description": "algo", "title": "Card 17", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
+        { "id": 18, "category": "DATA SCIENCE", "description": "algo", "title": "Card 18", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" }
+    ]
+}

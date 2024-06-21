@@ -55,7 +55,7 @@ const Work = () => {
   const filteredCards = filter === 'ALL' ? cards : cards.filter(card => card.category === filter);
 
   return (
-    <div className="relative w-full bg-gradient-to-b from-[#023053] to-[#03223d] flex flex-col items-center justify-center text-[#FAFAFA] p-5 min-h-screen">
+    <div id="work" className="relative w-full bg-gradient-to-b from-[#023053] to-[#03223d] flex flex-col items-center justify-center text-[#FAFAFA] p-5 min-h-screen">
       {/* Background Text */}
       <div className="hidden absolute inset-0 lg:flex items-start justify-center z-0 lg:mt-[-5%]">
           <h1 className="text-[20rem] font-bold text-white opacity-10 select-none">WORK</h1>
@@ -85,7 +85,7 @@ const Work = () => {
       {/* Grid Layout */}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 w-full max-w-screen-lg">
         {filteredCards.map(card => (
-          <CardComponent title={card.title} description={card.description} category={card.category} image={card.imagePortrait} icon={card.icon}/>
+          <CardComponent key={card.id} title={card.title} description={card.description} category={card.category} image={card.imagePortrait} icon={card.icon}/>
         ))}
       </div>
     </div>

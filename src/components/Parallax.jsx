@@ -27,6 +27,7 @@ export default function Parallax() {
   return (
     <div 
       ref={ref}
+      id="home"
       className="w-full h-screen overflow-hidden relative grid place-items-center bg-[#77CFF2]"
     >
         <div

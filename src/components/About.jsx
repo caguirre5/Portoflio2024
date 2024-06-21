@@ -5,7 +5,7 @@ import image2 from "../assets/Avatar2.jpg"
 
 const About = () => {
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-b from-[#0c1926] to-[#03223d] flex flex-col items-center justify-center">
+    <div id="about" className="relative w-full min-h-screen bg-gradient-to-b from-[#0c1926] to-[#03223d] flex flex-col items-center justify-center">
         {/* Background Text */}
         <div className="hidden absolute inset-0 lg:flex items-center justify-center z-0 lg:mb-[15%]">
           <h1 className="text-[20rem] font-bold text-white opacity-10 select-none">ABOUT</h1>

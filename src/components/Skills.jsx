@@ -16,7 +16,7 @@ import faTableau from '../assets/logos/icons8-tableau-software.svg'
 
 const Skills = () => {
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-b from-[#03223d] to-[#023053] flex items-center justify-center text-white">
+    <div id="skills" className="relative w-full min-h-screen bg-gradient-to-b from-[#03223d] to-[#023053] flex items-center justify-center text-white">
       {/* Background Text */}
         <div className="hidden absolute inset-0 lg:flex items-center justify-center z-0 lg:mb-[15%]">
           <h1 className="text-[20rem] font-bold text-white opacity-5 select-none">SKILLS</h1>
