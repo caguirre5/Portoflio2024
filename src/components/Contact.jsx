@@ -21,10 +21,10 @@ const Contact = () => {
                 <p>caguirre.dt@gmail.com</p>
             </div>
             <div className="flex justify-center items-center mt-8">
-                <a href="" className="mx-2"><FontAwesomeIcon icon={faInstagram} className='text-white w-8 h-8'/></a>
-                <a href="" className="mx-2"><FontAwesomeIcon icon={faGithub} className='text-white w-8 h-8'/></a>
-                <a href="" className="mx-2"><FontAwesomeIcon icon={faLinkedin} className='text-white w-8 h-8'/></a>
-                <a href="" className="mx-2"><FontAwesomeIcon icon={faCodepen} className='text-white w-8 h-8'/></a>
+                <a target="_blank" href="https://www.instagram.com/cristiandt__?igsh=N2ZtZWU2dnNyMng3&utm_source=qr" className="mx-2"><FontAwesomeIcon icon={faInstagram} className='text-white w-8 h-8'/></a>
+                <a target="_blank" href="https://github.com/caguirre5" className="mx-2"><FontAwesomeIcon icon={faGithub} className='text-white w-8 h-8'/></a>
+                <a target="_blank" href="www.linkedin.com/in/cristiandt5" className="mx-2"><FontAwesomeIcon icon={faLinkedin} className='text-white w-8 h-8'/></a>
+                <a target="_blank" href="https://codepen.io/caguirre5" className="mx-2"><FontAwesomeIcon icon={faCodepen} className='text-white w-8 h-8'/></a>
             </div>
         </section>
         <section className="lg:w-1/2 flex items-center justify-center  z-10">
