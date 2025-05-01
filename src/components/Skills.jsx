@@ -24,7 +24,7 @@ const Skills = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-10 lg:mt-[5%]">
         {/* Front End */}
         <div className="flex flex-col items-center">
-          <h2 className="text-white font-bold text-2xl mb-4">Front End</h2>
+          <h2 className="text-white font-bold text-2xl mb-4">Front end</h2>
           <div className="flex flex-wrap justify-center">
             <div className="p-4 flex flex-col items-center justify-center">
                 <FontAwesomeIcon icon={faJsSquare} className="w-12 h-12" />
@@ -51,7 +51,7 @@ const Skills = () => {
 
         {/*  Data Science */}
         <div className="flex flex-col items-center">
-          <h2 className="text-white font-bold text-2xl mb-4">Data Science</h2>
+          <h2 className="text-white font-bold text-2xl mb-4">Data engineering</h2>
           <div className="flex flex-wrap justify-center">
             <div className="p-4 flex flex-col items-center justify-center">
                 <FontAwesomeIcon icon={faPython} className="w-12 h-12" />
@@ -78,7 +78,7 @@ const Skills = () => {
 
         {/* Others */}
         <div className="flex flex-col items-center">
-          <h2 className="text-white font-bold text-2xl mb-4">Basic Knowledge</h2>
+          <h2 className="text-white font-bold text-2xl mb-4">Learning path</h2>
           <div className="flex flex-wrap justify-center">
             <div className="p-4 flex flex-col items-center justify-center">
                 <FontAwesomeIcon icon={faGithub} className="w-12 h-12" />

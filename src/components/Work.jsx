@@ -17,7 +17,6 @@ const CardComponent = ({ title, description, category, image, icon, onClick }) =
       onClick={onClick}
     >
       <div className="relative h-60 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>
-      <FontAwesomeIcon icon={icon} className="w-12 h-12" />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
           <h3 className="text-2xl font-bold mb-2">{title}</h3>
           <p className="text-base mb-4">{description}</p>

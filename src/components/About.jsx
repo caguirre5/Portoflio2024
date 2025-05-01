@@ -1,7 +1,7 @@
 import React from 'react'
 
 import image from "../assets/Avatar.jpg"
-import image2 from "../assets/Avatar2.jpg"
+import image2 from "../assets/MySelf.png"
 
 const About = () => {
   return (
@@ -28,7 +28,7 @@ const About = () => {
           </section>
         
           {/* Circle Element */}
-          <div className="w-80 h-80 bg-gray-300 rounded-full order-1 lg:order-2 bg-cover bg-center border-8" style={{ backgroundImage: `url(${image})`}}></div>
+          <div className="w-80 h-80 bg-gray-300 rounded-full order-1 lg:order-2 bg-cover bg-center border-8" style={{ backgroundImage: `url(${image2})`}}></div>
         </div>
     </div>
   )

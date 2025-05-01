@@ -1,56 +1,134 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  faCode,
+  faMobileScreenButton,
+  faPencil,
+  faStar,
+  faBrain,
+  faMusic,
+  faBasketballBall,
+  faPalette,
+  faPersonHiking,
+  faGamepad,
+} from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMusic, faBasketball, faPalette, faPersonHiking, faGamepad } from '@fortawesome/free-solid-svg-icons';
-import Data from '../PageContent.json'
+import content from "../PageContent.json"; // Ajusta la ruta según tu estructura
 
 const Facts = () => {
-  return (
-    <div className="relative w-full  bg-[#03223d] flex items-center justify-center text-[#FAFAFA]">
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2 lg:gap-6 w-11/12 max-w-screen-lg">
-            {/* First Row */}
-            <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
-                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_1.title}</h2>
-                <p>{Data.about.facts.fact_1.text}</p>
-            </div>
-            <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
-                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_2.title}</h2>
-                <p>{Data.about.facts.fact_2.text}</p>
-            </div>
-            <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
-                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_3.title}</h2>
-                <p>{Data.about.facts.fact_3.text}</p>
-            </div>
+  const [selectedId, setSelectedId] = useState(null);
 
-            {/* Second Row */}
-            <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8 py-12 lg:col-span-2 flex flex-col justify-center items-center">
-                <h2 className="text-2xl font-bold pb-4">My interests</h2>
-                <div className="flex flex-wrap justify-evenly w-4/5">
-                    <div className="p-4 flex flex-col items-center justify-center">
-                        <FontAwesomeIcon icon={faMusic} className="w-12 h-12 text-back" />
-                        {/* <p className="mt-2">Music</p> */}
-                    </div>
-                    <div className="p-4 flex flex-col items-center justify-center">
-                        <FontAwesomeIcon icon={faPalette} className="w-12 h-12 text-blck" />
-                        {/* <p className="mt-2">Arts</p> */}
-                    </div>
-                    <div className="p-4 flex flex-col items-center justify-center">
-                        <FontAwesomeIcon icon={faBasketball} className="w-12 h-12 text-back" />
-                        {/* <p className="mt-2">Sports</p> */}
-                    </div>
-                    <div className="p-4 flex flex-col items-center justify-center">
-                        <FontAwesomeIcon icon={faPersonHiking} className="w-12 h-12 text-back" /> 
-                        {/* <p className="mt-2">Outdoor</p> */}
-                    </div>
-                    <div className="p-4 flex flex-col items-center justify-center">
-                        <FontAwesomeIcon icon={faGamepad} className="w-12 h-12 text-back" />  
-                        {/* <p className="mt-2">Videogames</p> */}
-                    </div>
-                </div>
-            </div>
-            <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-none border-gray-100 p-4 lg:p-8">
-                <h2 className="text-2xl font-bold pb-4">{Data.about.facts.fact_4.title}</h2>
-                <p>{Data.about.facts.fact_4.text}</p>
-            </div>
-        </div>
+  const factEntries = Object.entries(content.about.facts);
+
+  const factCards = factEntries.map(([key, value], index) => {
+    const icons = [faCode, faMobileScreenButton, faPencil, faBrain];
+    const gradients = [
+      
+      "from-[#0a90bc] to-cyan-500",
+      "from-[#0a90bc] to-cyan-500",
+      "from-[#0a90bc] to-cyan-500",
+      "from-[#0a90bc] to-cyan-500",
+    ];
+  
+    return {
+      id: key,
+      title: value.title,
+      text: value.text,
+      icon: icons[index],
+      gradient: gradients[index],
+      clickable: true,
+    };
+  });
+  
+  const interestCard = {
+    id: "interests",
+    title: "My interests",
+    icon: faStar,
+    gradient: 
+    "from-[#214367] to-[#3771ac]",
+    colSpan: "lg:col-span-2",
+    clickable: false,
+  };
+  
+  const cards = [...factCards, interestCard];
+  
+
+  return (
+    <div className="w-full py-16 bg-[#03223d] flex justify-center relative z-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 max-w-screen-lg z-10">
+      {cards.map((card) => (
+        <motion.div
+          layoutId={card.clickable ? card.id : undefined}
+          key={card.id}
+          onClick={card.clickable ? () => setSelectedId(card.id) : undefined}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
+          className={`cursor-pointer relative h-60 p-5 rounded-xl shadow-md text-white overflow-hidden bg-gradient-to-br ${card.gradient} ${card.colSpan ?? ""}`}
+        >
+          {card.id === "interests" ? (
+            <>
+              <h3 className="text-3xl font-bold z-10 text-white mb-6">{card.title}</h3>
+              <div className="flex flex-wrap justify-center items-center gap-6 z-10">
+                {[faMusic, faBasketballBall, faPalette, faPersonHiking, faGamepad].map(
+                  (icon, i) => (
+                    <FontAwesomeIcon
+                      key={i}
+                      icon={icon}
+                      className="text-white text-5xl mt-6 sm:text-6xl md:text-6xl"
+                    />
+                  )
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <h3 className="text-4xl font-bold z-10 relative">{card.title}</h3>
+              <FontAwesomeIcon
+                icon={card.icon}
+                className="absolute text-white/20 text-[8rem] bottom-[-2rem] right-[-2rem] pointer-events-none"
+              />
+            </>
+          )}
+
+          <div className="absolute top-3 right-4 w-1 h-1 bg-white/30 rounded-full" />
+          <div className="absolute top-4 left-4 w-1 h-1 bg-white/20 rounded-full" />
+        </motion.div>
+      ))}
+
+      </div>
+
+      <AnimatePresence>
+        {selectedId && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center "
+            onClick={() => setSelectedId(null)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              layoutId={selectedId}
+              onClick={(e) => e.stopPropagation()}
+              className="w-11/12 max-w-2xl h-96 bg-gradient-to-br from-white to-gray-100 rounded-xl p-8 text-gray-900  flex flex-col justify-between shadow-lg border border-gray-200"
+
+            >
+              <h2 className="text-3xl font-bold">
+                {cards.find((c) => c.id === selectedId)?.title}
+              </h2>
+              <p className="mt-4 text-gray-900">
+                {cards.find((c) => c.id === selectedId)?.text}
+              </p>
+              <button
+                onClick={() => setSelectedId(null)}
+                className="mt-auto bg-[#397ec3] text-white border border-white rounded-md px-4 py-2 self-end"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
