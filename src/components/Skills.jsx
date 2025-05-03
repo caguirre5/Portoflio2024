@@ -26,23 +26,23 @@ const Skills = () => {
         <div className="flex flex-col items-center">
           <h2 className="text-white font-bold text-2xl mb-4">Front end</h2>
           <div className="flex flex-wrap justify-center">
-            <div className="p-4 flex flex-col items-center justify-center">
-                <FontAwesomeIcon icon={faJsSquare} className="w-12 h-12" />
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
+                <FontAwesomeIcon icon={faJsSquare} className="w-12 h-12 " />
                 <p className="mt-2">JavaScript</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <FontAwesomeIcon icon={faReact} className="w-12 h-12" />
                 <p className="mt-2">React</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <img src={faTypescript} alt="C#" className="w-12 h-12" />
                 <p className="mt-2">Typescript</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <FontAwesomeIcon icon={faReact} className="w-12 h-12" />
                 <p className="mt-2">React Native</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <img src={faTailwind} alt="C#" className="w-12 h-12" />
                 <p className="mt-2">Tailwind CSS</p>
             </div>
@@ -53,23 +53,23 @@ const Skills = () => {
         <div className="flex flex-col items-center">
           <h2 className="text-white font-bold text-2xl mb-4">Data engineering</h2>
           <div className="flex flex-wrap justify-center">
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <FontAwesomeIcon icon={faPython} className="w-12 h-12" />
                 <p className="mt-2">Python</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
               <img src={faPostgresql} alt="PostgreSQL" className="w-12 h-12" />
               <p className="mt-2">PostgreSQL</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
               <img src={faMysql} alt="MySQL" className="w-12 h-12" />
               <p className="mt-2">MySQL</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
               <img src={faPowerbi} alt="PowerBI" className="w-12 h-12" />
               <p className="mt-2">Power BI</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
               <img src={faTableau} alt="Tableau" className="w-12 h-12" />
               <p className="mt-2">Tableau</p>
             </div>
@@ -80,23 +80,23 @@ const Skills = () => {
         <div className="flex flex-col items-center">
           <h2 className="text-white font-bold text-2xl mb-4">Learning path</h2>
           <div className="flex flex-wrap justify-center">
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <FontAwesomeIcon icon={faGithub} className="w-12 h-12" />
                 <p className="mt-2">GitHub</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <FontAwesomeIcon icon={faGitAlt} className="w-12 h-12" />
                 <p className="mt-2">Git</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <FontAwesomeIcon icon={faJava} className="w-12 h-12" />
                 <p className="mt-2">Java</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <img src={faCPP} alt="C#" className="w-12 h-12" />
                 <p className="mt-2">C++</p>
             </div>
-            <div className="p-4 flex flex-col items-center justify-center">
+            <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                 <img src={faCSharp} alt="C#" className="w-12 h-12" />
                 <p className="mt-2">C#</p>
             </div>
@@ -107,27 +107,27 @@ const Skills = () => {
         <div className="flex flex-col items-center">
             <h2 className="text-white font-bold text-2xl mb-4">Others</h2>
             <div className="flex flex-wrap justify-center">
-                <div className="p-4 flex flex-col items-center justify-center">
+                <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                     <FontAwesomeIcon icon={faRobot} className="w-12 h-12" />
                     <p className="mt-2">IPA</p>
                 </div>
-                <div className="p-4 flex flex-col items-center justify-center">
+                <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                     <FontAwesomeIcon icon={faAws} className="w-12 h-12" />
                     <p className="mt-2">AWS</p>
                 </div>
-                <div className="p-4 flex flex-col items-center justify-center">
+                <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                     <FontAwesomeIcon icon={faUnity} className="w-12 h-12" />
                     <p className="mt-2">Unity</p>
                 </div>
-                <div className="p-4 flex flex-col items-center justify-center">
+                <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                     <img src={faPhotoshop} alt="Photoshop" className="w-12 h-12" />   
                 <p className="mt-2">Photoshop</p>
                 </div>
-                <div className="p-4 flex flex-col items-center justify-center">
+                <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                     <img src={faIllustrator} alt="Illustrator" className="w-12 h-12" />
                 <p className="mt-2">Illustrator</p>
                 </div>
-                <div className="p-4 flex flex-col items-center justify-center">
+                <div className="p-4 flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-125">
                     <FontAwesomeIcon icon={faFigma} className="w-12 h-12" />
                     <p className="mt-2">Figma</p>
                 </div>
