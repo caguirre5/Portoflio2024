@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu } from "./components/Menu";
 
+import { motion } from "framer-motion";
 import Parallax from "./components/Parallax";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -34,7 +35,17 @@ function App() {
   return (
     <div className="overflow-x-hidden">
       {!loaded ? (
-         <div>cargando</div>
+         <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-b from-[#03223d] to-[#023053]">
+         <motion.div
+           className="w-16 h-16 border-4 border-t-transparent border-white rounded-full"
+           animate={{ rotate: 360 }}
+           transition={{
+             repeat: Infinity,
+             ease: "linear",
+             duration: 1.2,
+           }}
+         />
+       </div>
       ) : (
         <>
           <Parallax/>
