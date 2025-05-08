@@ -5,7 +5,7 @@ import Parallax from "./components/Parallax";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Facts from "./components/Facts";
-import Work from "./components/Work";
+// import Work from "./components/Work";
 import Contact from "./components/Contact";
 
 
@@ -41,7 +41,7 @@ function App() {
           <About/>
           <Facts/>
           <Skills/>
-          <Work/>
+          {/* <Work/> */}
           <Contact/>
           <Menu onSectionChange = {setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened}/>
         </>

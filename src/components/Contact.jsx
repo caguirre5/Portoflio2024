@@ -32,9 +32,9 @@ const Contact = () => {
     });
   };
 
-
+  // from-[#03223d] to-[#023053]
   return (
-    <div id="contact" className="relative w-full min-h-screen bg-gradient-to-b from-[#03223d] to-[#023053] flex flex-col lg:flex-row items-center justify-center text-white lg:px-[10%]">
+    <div id="contact" className="relative w-full min-h-screen bg-gradient-to-b from-[#023053] to-[#03223d] flex flex-col lg:flex-row items-center justify-center text-white lg:px-[10%]">
         {/* Background Text */}
         <div className="hidden absolute inset-0 lg:flex items-start justify-center z-0 lg:mt-[-5%]">
             <h1 className="text-[20rem] font-bold text-white opacity-10 select-none">CONTACT</h1>
