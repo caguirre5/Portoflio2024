@@ -1,0 +1,45 @@
+/* Scroll and depth share the browser's scroll timeline, rather than
+   waiting for JavaScript scroll events during native scrollbar tracking. */
+
+/* Seal fractional-pixel gaps between the composited foreground and About.
+   This matches the foreground image's solid bottom edge (#0c1926). */
+#home::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: #0c1926;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#home + .shared-particle-sections {
+  margin-top: -2px;
+}
+
+@supports (animation-timeline: scroll(root block)) and (animation-range: 0px 100vh) {
+  .hero-scroll-layer {
+    animation: hero-depth linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 100vh;
+  }
+  .hero-scroll-copy {
+    animation: hero-copy-drift linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 100vh;
+  }
+}
+
+@keyframes hero-depth {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, var(--parallax-y), 0); }
+}
+
+@keyframes hero-copy-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(var(--parallax-x), 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-layer, .hero-scroll-copy { animation: none; transform: none; }
+}

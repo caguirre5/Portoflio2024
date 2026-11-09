@@ -1,0 +1,21 @@
+.floating-particle {
+  pointer-events: none;
+  animation-name: particle-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(var(--particle-low-scale));
+    opacity: var(--particle-low-opacity);
+  }
+  50% {
+    transform: translate3d(var(--particle-drift), var(--particle-rise), 0) scale(var(--particle-high-scale));
+    opacity: var(--particle-high-opacity);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-particle { animation: none; opacity: 0; }
+}

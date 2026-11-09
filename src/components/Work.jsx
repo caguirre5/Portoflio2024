@@ -1,94 +1,67 @@
-import React, { useState } from 'react';
-
-import UX_Portfolio_1 from "../assets/projects/UX_Portfolio.png"
-import WEB_Portfolio_1 from "../assets/projects/WEB_Portfolio.png"
-import WEB_Caribbean from "../assets/projects/WEB_Caribbean.png"
-import WEB_ICE from "../assets/projects/WEB_ICE.png"
-import WEB_Tesla from "../assets/projects/WEB_Tesla.png"
-
-import { faRobot } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { projectStoryLinks } from "../data/projectStories";
+import content from "../PageContent.json";
+import portfolioUX from "../assets/projects/UX_Portfolio.png";
+import portfolioWeb from "../assets/projects/WEB_Portfolio.png";
+import caribbean from "../assets/projects/WEB_Caribbean.png";
+import ice from "../assets/projects/WEB_ICE.png";
+import loom from "../assets/projects/loom/site-home.png";
+import symma from "../assets/projects/Symma_Preview.svg";
+import opeka from "../assets/projects/Opeka_Workspace.png";
+import pollo from "../assets/projects/Pollo_Menu.png";
+import './Work.css';
 
-const CardComponent = ({ title, description, category, image, icon, onClick }) => {
+const images = { GAME_Pollo: pollo, WEB_Opeka: opeka, WEB_Symma: symma, WEB_Caribbean: caribbean, WEB_Portfolio_1: portfolioWeb, WEB_ICE: ice, WEB_Loom: loom, UX_Portfolio_1: portfolioUX };
+const projects = content.work.filter((project) => !project.hidden && images[project.imagePortrait]);
+const filters = ['All projects', 'WEB DEVELOPMENT', 'UX DESIGN', 'GAME DEVELOPMENT'];
+const labels = { 'WEB DEVELOPMENT': 'Web development', 'UX DESIGN': 'UX design', 'GAME DEVELOPMENT': 'Game development' };
+const accents = { 21: '#ffd45b', 20: '#edc487', 19: '#b6caff', 1: '#e9c184', 2: '#67e8f9', 3: '#9fd4b7', 4: '#d0c7a0', 7: '#c4b5fd' };
+
+export default function Work() {
+  const [filter, setFilter] = useState('All projects');
+  const visible = projects.filter((project) => filter === 'All projects' || project.category === filter);
   return (
-    <div 
-      className="bg-white rounded-lg shadow-md overflow-hidden relative"
-      style={{ minHeight: '180px', width: '320px' }}
-      onClick={onClick}
-    >
-      <div className="relative h-60 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
-          <h3 className="text-2xl font-bold mb-2">{title}</h3>
-          <p className="text-base mb-4">{description}</p>
-          <button className="bg-white text-black py-2 px-4 rounded-lg font-semibold mt-4" onClick={onClick}>See More</button>
+    <section id="work" aria-labelledby="work-title" className="work-section section-work-background">
+      <div className="work-inner">
+        <header className="work-heading">
+          <p className="work-eyebrow">Selected work</p>
+          <h2 id="work-title" tabIndex={-1}>Projects & explorations</h2>
+          <p className="work-introduction">A selection of web projects and design explorations, reflecting my interest in how digital experiences look, feel, and work.</p>
+        </header>
+        <div className="work-filters" aria-label="Filter projects">
+          {filters.map((item) => (
+            <button key={item} type="button" aria-pressed={filter === item} onClick={() => setFilter(item)}>
+              {labels[item] || item}<span className="work-filter-count" aria-hidden="true">{item === 'All projects' ? projects.length : projects.filter((project) => project.category === item).length}</span>
+            </button>
+          ))}
+        </div>
+        <div className="work-gallery">
+          {visible.map((project) => {
+            const story = projectStoryLinks[project.id];
+            const href = story || project.url;
+            const featured = project.id === 1;
+            return (
+              <article key={project.id} className={`work-project work-project--${project.id}${featured ? ' work-project--featured' : ''}`} style={{ '--project-accent': accents[project.id] || '#a5f3fc' }} aria-labelledby={`work-project-${project.id}-title`}>
+                <div className="work-preview-stage">
+                  <div className="work-browser">
+                    <div className="work-browser-chrome" aria-hidden="true"><span className="work-browser-dots"><i /><i /><i /></span><span>{project.title}</span><span className="work-browser-line" /></div>
+                    {href ? <a href={href} target={story ? undefined : '_blank'} rel={story ? undefined : 'noreferrer'} aria-label={`${story ? 'Explore' : 'Visit'} ${project.title}${story ? '' : ' (opens in a new tab)'}`} className="work-preview-link"><img src={images[project.imagePortrait]} alt={`${project.title} interface preview`} loading="lazy" width="1600" height="1000" /></a> : <img src={images[project.imagePortrait]} alt={`${project.title} interface preview`} loading="lazy" width="1600" height="1000" />}
+                  </div>
+                  <span className="work-preview-orbit" aria-hidden="true" />
+                </div>
+                <div className="work-project-content">
+                  <div className="work-project-meta"><span>{project.status || (featured ? 'Featured project' : labels[project.category])}</span><span aria-hidden="true">{String(projects.indexOf(project) + 1).padStart(2, '0')}</span></div>
+                  <h3 id={`work-project-${project.id}-title`}>{project.title}</h3>
+                  <p className="work-project-description">{project.description}</p>
+                  {href && <a href={href} target={story ? undefined : '_blank'} rel={story ? undefined : 'noreferrer'} className="work-project-action" aria-label={`${story ? 'Explore project' : 'Visit website'}: ${project.title}${story ? '' : ' (opens in a new tab)'}`}><span>{story ? 'Explore project' : 'Visit website'}</span><span className="work-action-icon" aria-hidden="true"><FontAwesomeIcon icon={story ? faArrowRight : faArrowUpRightFromSquare} /></span></a>}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-const Work = () => {
-  const [filter, setFilter] = useState('WEB DEVELOPMENT');
-
-  const cards = [
-    { id: 1, category: 'WEB DEVELOPMENT', description:"algo", title: 'Caribbean Goods', imagePortrait: WEB_Caribbean, url: "", icon: faRobot },
-    { id: 2, category: 'WEB DEVELOPMENT', description:"algo", title: 'Old Portfolio', imagePortrait:  WEB_Portfolio_1, url: "https://caguirre5.github.io/PortfolioProject/"  },
-    { id: 3, category: 'WEB DEVELOPMENT', description:"algo", title: 'ICE Project', imagePortrait: WEB_ICE, url: "" },
-    { id: 4, category: 'WEB DEVELOPMENT', description:"algo", title: 'Tesla Clone', imagePortrait: WEB_Tesla },
-    { id: 5, category: 'WEB DEVELOPMENT', description:"algo", title: 'Simulator', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png", url: "" },
-    { id: 6, category: 'WEB DEVELOPMENT', description:"algo", title: 'Course', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png", url: "" },
-    { id: 7, category: 'UX DESIGN', description:"algo", title: 'Portfolio', imagePortrait: UX_Portfolio_1 },
-    { id: 8, category: 'UX DESIGN', description:"algo", title: 'Pedidotes Ya', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 9, category: 'UX DESIGN', description:"algo", title: 'Movies App', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 10, category: 'UX DESIGN', description:"algo", title: 'Steam for Moms', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 11, category: 'UX DESIGN', description:"algo", title: 'Traveling App', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 12, category: 'UX DESIGN', description:"algo", title: 'Whatsapp Pay', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 13, category: 'DATA SCIENCE', description:"algo", title: 'Card 13', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 14, category: 'DATA SCIENCE', description:"algo", title: 'Card 14', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 15, category: 'DATA SCIENCE', description:"algo", title: 'Card 15', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 16, category: 'DATA SCIENCE', description:"algo", title: 'Card 16', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 17, category: 'DATA SCIENCE', description:"algo", title: 'Card 17', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-    { id: 18, category: 'DATA SCIENCE', description:"algo", title: 'Card 18', imagePortrait: "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-  ];
-
-  const filteredCards = filter === 'ALL' ? cards : cards.filter(card => card.category === filter);
-
-  return (
-    <div id="work" className="relative w-full bg-gradient-to-b from-[#023053] to-[#03223d] flex flex-col items-center justify-center text-[#FAFAFA] p-5 min-h-screen">
-      {/* Background Text */}
-      <div className="hidden absolute inset-0 lg:flex items-start justify-center z-0 lg:mt-[-5%]">
-          <h1 className="text-[20rem] font-bold text-white opacity-10 select-none">WORK</h1>
-      </div>
-      {/* Navigation Buttons */}
-      <div className="flex space-x-4 mb-8 z-10">
-        <button 
-          className={`px-4 py-2 rounded-full ${filter === 'WEB DEVELOPMENT' ? 'bg-[#397ec3] border-[#397ec3] text-white' : 'text-white border-white'} hover:bg-[#3c70a4] hover:border-[#3c70a4] focus:outline-none border-2`} 
-          onClick={() => setFilter('WEB DEVELOPMENT')}
-        >
-          WEB DEVELOPMENT
-        </button>
-        <button 
-          className={`px-4 py-2 rounded-full ${filter === 'UX DESIGN' ? 'bg-[#397ec3] border-[#397ec3] text-white' : 'text-white border-white'} hover:bg-[#3c70a4] hover:border-[#3c70a4] focus:outline-none border-2`} 
-          onClick={() => setFilter('UX DESIGN')}
-        >
-          UX DESIGN
-        </button>
-        <button 
-          className={`px-4 py-2 rounded-full ${filter === 'DATA SCIENCE' ? 'bg-[#397ec3] border-[#397ec3] text-white' : 'text-white border-white'} hover:bg-[#3c70a4] hover:border-[#3c70a4] focus:outline-none border-2`} 
-          onClick={() => setFilter('DATA SCIENCE')}
-        >
-          DATA SCIENCE
-        </button>
-      </div>
-
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 w-full max-w-screen-lg">
-        {filteredCards.map(card => (
-          <CardComponent key={card.id} title={card.title} description={card.description} category={card.category} image={card.imagePortrait} icon={card.icon}/>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default Work;
+}

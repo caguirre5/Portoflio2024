@@ -1,48 +1,191 @@
 {
-    "landing": {
-        "title":"Cristian Aguirre",
-        "subtitle":"Software Developer"
+  "landing": {
+    "title": "Cristian Aguirre",
+    "subtitle": "Software Developer"
+  },
+  "about": {
+    "title": "Hi, I’m Cristian.",
+    "description": "I’m a software developer from Guatemala, focused on building thoughtful web and mobile experiences. I bring frontend development and UX design together to create interfaces that feel clear, useful, and easy to use.",
+    "facts": {
+      "fact_1": {
+        "title": "Web Development",
+        "text": "I build web interfaces with a focus on clear navigation, responsive layouts, and thoughtful visual details."
+      },
+      "fact_2": {
+        "title": "Mobile Apps",
+        "text": "I develop mobile experiences that bring useful features and intuitive interactions together across different screen sizes."
+      },
+      "fact_3": {
+        "title": "UX Design",
+        "text": "I approach design by understanding what people need, simplifying interactions, and refining the details that make an interface easier to use."
+      },
+      "fact_4": {
+        "title": "Artificial Intelligence",
+        "text": "I’m exploring AI and data science to understand how data can inform decisions and help solve practical problems."
+      }
     },
-    "about":{
-        "title":"Hi! I'm Cristian",
-        "description":"I am a passionate software developer from Guatemala, specializing in frontend development for web and mobile applications. My career has focused on creating high-quality user experiences and I am currently delving into the world of Data Science. Additionally, I have explored game development and augmented reality, further expanding my skill set. In my personal life, I have a deep appreciation for the arts and music, and I enjoy staying active through various physical activities. My creative pursuits and love for the outdoors inspire my approach to innovative and dedicated work in all my projects.",
-        "facts": {
-            "fact_1": {
-                "title":"Web Development",
-                "text":"I specialize in developing user-centric web interfaces that prioritize intuitive usability and aesthetic appeal. My approach involves crafting scalable and flexible web solutions that meet diverse client needs, ensuring each project is both innovative and effective."
-            },
-            "fact_2": {
-                "title":"Mobile Apps",
-                "text":"I create engaging mobile applications that focus on delivering seamless user experiences across various devices. My work emphasizes the integration of user-friendly design and functional excellence to produce apps that are both informative and interactive."
-            },
-            "fact_3": {
-                "title":"UX Design",
-                "text":"My UX design practice centers on understanding user behaviors and crafting interfaces that enhance user interaction and satisfaction. Through continuous user testing and feedback, I refine designs to create optimal user experiences that are both visually appealing and easy to navigate."
-            },
-            "fact_4": {
-                "title":"Artificial Intelligence",
-                "text":"I am deeply passionate about exploring the potential of artificial intelligence as an emerging field. Motivated to continually expand my knowledge and skills, I focus on understanding and applying AI to solve complex problems and enhance data-driven decision-making processes."
-            }
-        }
+    "exploration": "I’m currently pursuing an IMBA at National Tsing Hua University in Taiwan, connecting my software development background with a growing interest in business and innovation. My curiosity also takes me into data science, game development, and augmented reality.",
+    "personal": "Away from the screen, I find inspiration in music, art, and time outdoors. That balance shapes the care and creativity I bring to my work."
+  },
+  "work": [
+    {
+      "id": 21,
+      "category": "GAME DEVELOPMENT",
+      "description": "An Overcooked-inspired learning project built in Unity and C#. Step into a playful kitchen and try the browser demo.",
+      "title": "Pollo Sopero",
+      "imagePortrait": "GAME_Pollo",
+      "url": "https://caguirre5.itch.io/pollosopero"
     },
-    "work": [
-        { "id": 1, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Caribbean Goods", "imagePortrait": "WEB_Caribbean", "url": "", "icon": "faRobot" },
-        { "id": 2, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Old Portfolio", "imagePortrait": "WEB_Portfolio_1", "url": "https://caguirre5.github.io/PortfolioProject/" },
-        { "id": 3, "category": "WEB DEVELOPMENT", "description": "algo", "title": "ICE Project", "imagePortrait": "WEB_ICE", "url": "" },
-        { "id": 4, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Tesla Clone", "imagePortrait": "WEB_Tesla" },
-        { "id": 5, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Simulator", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png", "url": "" },
-        { "id": 6, "category": "WEB DEVELOPMENT", "description": "algo", "title": "Course", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png", "url": "" },
-        { "id": 7, "category": "UX DESIGN", "description": "algo", "title": "Portfolio", "imagePortrait": "UX_Portfolio_1" },
-        { "id": 8, "category": "UX DESIGN", "description": "algo", "title": "Pedidotes Ya", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 9, "category": "UX DESIGN", "description": "algo", "title": "Movies App", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 10, "category": "UX DESIGN", "description": "algo", "title": "Steam for Moms", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 11, "category": "UX DESIGN", "description": "algo", "title": "Traveling App", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 12, "category": "UX DESIGN", "description": "algo", "title": "Whatsapp Pay", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 13, "category": "DATA SCIENCE", "description": "algo", "title": "Card 13", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 14, "category": "DATA SCIENCE", "description": "algo", "title": "Card 14", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 15, "category": "DATA SCIENCE", "description": "algo", "title": "Card 15", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 16, "category": "DATA SCIENCE", "description": "algo", "title": "Card 16", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 17, "category": "DATA SCIENCE", "description": "algo", "title": "Card 17", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" },
-        { "id": 18, "category": "DATA SCIENCE", "description": "algo", "title": "Card 18", "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png" }
-    ]
+    {
+      "id": 20,
+      "category": "WEB DEVELOPMENT",
+      "status": "In development",
+      "description": "A business management platform connecting products, inventory, sales and cash operations. An ongoing full-stack project built with Next.js and Firebase.",
+      "title": "Opeka Pro",
+      "imagePortrait": "WEB_Opeka",
+      "url": ""
+    },
+    {
+      "id": 19,
+      "category": "WEB DEVELOPMENT",
+      "description": "A configurable clinical platform connecting patients, appointments and consultations. Built with Next.js, TypeScript and Firebase.",
+      "title": "Symma",
+      "imagePortrait": "WEB_Symma",
+      "url": ""
+    },
+    {
+      "id": 1,
+      "category": "WEB DEVELOPMENT",
+      "description": "A full-stack web platform for a specialty coffee business, combining a public website with digital experiences for customers and internal teams.",
+      "title": "Caribbean Goods",
+      "imagePortrait": "WEB_Caribbean",
+      "url": "",
+      "icon": "faRobot"
+    },
+    {
+      "id": 2,
+      "hidden": true,
+      "category": "WEB DEVELOPMENT",
+      "description": "An earlier version of my personal portfolio, bringing my work and interests together on the web.",
+      "title": "Old Portfolio",
+      "imagePortrait": "WEB_Portfolio_1",
+      "url": "https://caguirre5.github.io/PortfolioProject/"
+    },
+    {
+      "id": 3,
+      "hidden": true,
+      "category": "WEB DEVELOPMENT",
+      "description": "A web development project exploring interface structure and visual presentation.",
+      "title": "ICE Project",
+      "imagePortrait": "WEB_ICE",
+      "url": ""
+    },
+    {
+      "id": 4,
+      "category": "WEB DEVELOPMENT",
+      "description": "A story-led landing page for Loom Coffeehouse, bringing coffee, craft and human connection together through warm imagery and an earthy visual identity.",
+      "title": "Loom Coffeehouse",
+      "imagePortrait": "WEB_Loom"
+    },
+    {
+      "id": 5,
+      "category": "WEB DEVELOPMENT",
+      "description": "algo",
+      "title": "Simulator",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png",
+      "url": ""
+    },
+    {
+      "id": 6,
+      "category": "WEB DEVELOPMENT",
+      "description": "algo",
+      "title": "Course",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png",
+      "url": ""
+    },
+    {
+      "id": 7,
+      "category": "UX DESIGN",
+      "description": "My first steps in UX: an early Figma design that became the first web version of this portfolio, before its current redesign.",
+      "title": "Portfolio · First UX Exploration",
+      "imagePortrait": "UX_Portfolio_1"
+    },
+    {
+      "id": 8,
+      "category": "UX DESIGN",
+      "description": "algo",
+      "title": "Pedidotes Ya",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 9,
+      "category": "UX DESIGN",
+      "description": "algo",
+      "title": "Movies App",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 10,
+      "category": "UX DESIGN",
+      "description": "algo",
+      "title": "Steam for Moms",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 11,
+      "category": "UX DESIGN",
+      "description": "algo",
+      "title": "Traveling App",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 12,
+      "category": "UX DESIGN",
+      "description": "algo",
+      "title": "Whatsapp Pay",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 13,
+      "category": "DATA SCIENCE",
+      "description": "algo",
+      "title": "Card 13",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 14,
+      "category": "DATA SCIENCE",
+      "description": "algo",
+      "title": "Card 14",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 15,
+      "category": "DATA SCIENCE",
+      "description": "algo",
+      "title": "Card 15",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 16,
+      "category": "DATA SCIENCE",
+      "description": "algo",
+      "title": "Card 16",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 17,
+      "category": "DATA SCIENCE",
+      "description": "algo",
+      "title": "Card 17",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    },
+    {
+      "id": 18,
+      "category": "DATA SCIENCE",
+      "description": "algo",
+      "title": "Card 18",
+      "imagePortrait": "https://cdn.prod.website-files.com/5b5729421aca332c60585f78/63f5fa23da820b87c87958be_61ba503872080311dde1ea56_long-form-landing-page-examples.png"
+    }
+  ]
 }

@@ -11,10 +11,125 @@ body {
   margin: 0;
 }
 
+:root {
+  --scrollbar-track: #1a3654;
+  --scrollbar-thumb: #397ec3;
+  --scrollbar-hover: #5a9cdb;
+  --scrollbar-active: #82b9ec;
+}
+
+html[data-page-theme="caribbean"] {
+  --scrollbar-track: #092b29;
+  --scrollbar-thumb: #bd9967;
+  --scrollbar-hover: #e0b778;
+  --scrollbar-active: #f1c37a;
+}
+
+html[data-page-theme="symma"] {
+  --scrollbar-track: #f6f7fb;
+  --scrollbar-thumb: #97afcc;
+  --scrollbar-hover: #758fae;
+  --scrollbar-active: #536f96;
+}
+
+html[data-page-theme="opeka"] {
+  --scrollbar-track: #17393c;
+  --scrollbar-thumb: #c7a675;
+  --scrollbar-hover: #e0bd85;
+  --scrollbar-active: #f2cd91;
+}
+
+html[data-page-theme="pollo"] {
+  --scrollbar-track: #513124;
+  --scrollbar-thumb: #e9a42c;
+  --scrollbar-hover: #f5c44d;
+  --scrollbar-active: #ffdf65;
+}
+
+html[data-page-theme="portfolio-ux"] {
+  --scrollbar-track: #302136;
+  --scrollbar-thumb: #b59bcf;
+  --scrollbar-hover: #d0b8e5;
+  --scrollbar-active: #d8ee8b;
+}
+
+html[data-page-theme="loom"] {
+  --scrollbar-track: #efe9dd;
+  --scrollbar-thumb: #777e55;
+  --scrollbar-hover: #a76734;
+  --scrollbar-active: #78492e;
+}
+
+/* Use the native compositor scrollbar where supported. Only older engines
+   receive the legacy pseudo-element styling below. */
+@supports (scrollbar-color: blue navy) {
+  html {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
+  }
+}
+
+/* The landscape uses only small points; other sections keep their circles. */
+#home .particle-background [data-particle-kind="circle"] {
+  display: none;
+}
+
+/* The sky and first five landscape layers share one day/sunset cycle.
+   The foreground trees deliberately stay outside these selectors. */
+.parallax-sunset {
+  background:
+    radial-gradient(ellipse at 65% 25%, rgba(255, 211, 153, 0.85), transparent 48%),
+    linear-gradient(to bottom, #795777 0%, #b8758d 14%, #ef9b7c 28%, #ffc18b 42%, #ffd0a0 100%);
+}
+
+.parallax-sun {
+  background: radial-gradient(circle at 40% 35%, #fffef0, #ffe8a3 65%, #ffc778);
+  box-shadow: 0 0 35px 12px rgba(255, 224, 152, 0.35), 0 0 100px 35px rgba(255, 207, 133, 0.15);
+}
+
+/* Section colors sit below the single continuous particle layer. */
+.section-about-background::before,
+.section-facts-background::before,
+.section-skills-background::before,
+.section-work-background::before,
+.section-contact-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.section-about-background::before {
+  background: linear-gradient(to bottom, #0c1926, #03223d);
+}
+
+.section-facts-background::before {
+  background: #03223d;
+}
+
+.section-skills-background::before {
+  background: linear-gradient(to bottom, #03223d, #023053);
+}
+
+.section-contact-background::before {
+  background: linear-gradient(to bottom, #023053, #03223d);
+}
+
+.section-work-background::before {
+  background: #023053;
+}
+
+.shared-particle-sections > .particle-background {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 180px, black calc(100% - 100px), transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 180px, black calc(100% - 100px), transparent);
+}
+
 .slick-slide > div {
   margin: 0 10px;
 }
 
+@supports not (scrollbar-color: blue navy) {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -22,19 +137,28 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #1a3654;
+  background: var(--scrollbar-track);
   opacity: 0.2;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #397ec3;
+  background: var(--scrollbar-thumb);
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--scrollbar-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-active);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track);
+}
 }
 
 input:-webkit-autofill,
