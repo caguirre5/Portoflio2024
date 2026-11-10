@@ -1,6 +1,6 @@
 import BackgroundParticles from "./BackgroundParticles";
 import { useEffect, useRef } from 'react'
-import { solarPosition, sunsetAmount } from '../solarCycle'
+import { solarPosition, sunsetAmount, SOLAR_CYCLE_MS } from '../solarCycle'
 import L1 from '../assets/background/layer1-D.png'
 import L2 from '../assets/background/layer2-D.png'
 import L3 from '../assets/background/layer3-D.png'
@@ -9,6 +9,9 @@ import L5 from '../assets/background/layer5-D.png'
 import L6 from '../assets/background/layer6-D.png'
 import { motion, useInView, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import './Parallax.css'
+import useHeroWildlife from './useHeroWildlife'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 const nativeParallax = typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'scroll(root block)') && CSS.supports('animation-range', '0px 100vh');
 
@@ -19,6 +22,8 @@ export default function Parallax() {
   const sunRef = useRef(null);
   const skyRef = useRef(null);
   const cycleTime = useRef(0);
+  const solarAnimationRef = useRef(null);
+  const wildlife = useHeroWildlife({ heroRef: ref, solarAnimationRef, active: inView, reducedMotion });
 
   useEffect(() => {
     let animations = [];
@@ -44,12 +49,13 @@ export default function Parallax() {
         const amount = sunsetAmount(phase);
         return { offset: phase, filter: `sepia(${amount * 0.55}) saturate(${1 - amount * 0.15}) hue-rotate(${-25 * amount}deg) brightness(${1 - amount * 0.22})` };
       });
-      const timing = { duration: 48000, iterations: Infinity, fill: 'both' };
+      const timing = { duration: SOLAR_CYCLE_MS, iterations: Infinity, fill: 'both' };
       animations = [
         sunRef.current.animate(sunFrames, timing),
         skyRef.current.animate(skyFrames, timing),
         ...Array.from(ref.current.querySelectorAll('[data-landscape-layer]'), (layer) => layer.animate(landscapeFrames, timing)),
       ];
+      solarAnimationRef.current = animations[0];
       animations.forEach((animation) => {
         animation.currentTime = reducedMotion ? 0 : cycleTime.current;
         if (!inView || reducedMotion || document.hidden) animation.pause();
@@ -65,6 +71,7 @@ export default function Parallax() {
     return () => {
       disposed = true;
       cycleTime.current = Number(animations[0]?.currentTime ?? cycleTime.current);
+      if (solarAnimationRef.current === animations[0]) solarAnimationRef.current = null;
       animations.forEach((animation) => animation.cancel());
       observer.disconnect();
       document.removeEventListener('visibilitychange', visibilityChange);
@@ -96,8 +103,11 @@ export default function Parallax() {
         <motion.div aria-hidden="true" className="hero-scroll-layer pointer-events-none absolute inset-0" style={{ y: nativeParallax || reducedMotion ? undefined : backgroundY1, '--parallax-y': '97%' }}>
           <div ref={sunRef} className="parallax-sun absolute left-0 top-0 rounded-full" />
         </motion.div>
+        <motion.div aria-hidden="true" className="hero-scroll-layer hero-bird-sky" style={{ y: nativeParallax || reducedMotion ? undefined : backgroundY1, '--parallax-y': '97%' }}>
+          <div ref={wildlife.flockRef} className="hero-flock" data-flying={wildlife.flockVisible} />
+        </motion.div>
         <div
-          className='relative z-[1] flex w-full max-w-7xl flex-col items-center px-6 text-center text-white [text-shadow:0_2px_24px_rgba(3,22,38,0.35)]'
+          className='relative z-[3] flex w-full max-w-7xl flex-col items-center px-6 text-center text-white [text-shadow:0_2px_24px_rgba(3,22,38,0.35)]'
         >
           <motion.p style={{ x: nativeParallax || reducedMotion ? undefined : textXL, '--parallax-x': '-150%' }} className="hero-scroll-copy mb-5 text-[10px] font-medium uppercase tracking-[0.22em] text-white/90 sm:text-xs">
             From Guatemala <span className="px-2" aria-hidden="true">·</span> Based in Taiwan
@@ -123,8 +133,8 @@ export default function Parallax() {
                 event.preventDefault();
                 work.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' });
               }
-            }} className="hero-scroll-copy mt-7 inline-flex items-center gap-4 rounded-full border border-white/40 bg-[#03223d]/25 px-6 py-3 text-sm font-medium shadow-sm backdrop-blur-sm transition-colors hover:border-white/70 hover:bg-[#03223d]/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              Explore my work <span aria-hidden="true">↓</span>
+            }} className="hero-scroll-copy hero-work-cta">
+              <span>Explore my work</span><span className="hero-work-cta-icon" aria-hidden="true"><FontAwesomeIcon icon={faArrowDown} /></span>
             </motion.a>
           </div>
         </div>
@@ -140,6 +150,15 @@ export default function Parallax() {
               y: nativeParallax || reducedMotion ? undefined : backgroundY1
             }}
         />
+        <div className="hero-wildlife" style={{ '--quetzal-size': `${wildlife.layout?.size ?? 150}px` }}>
+          <button type="button" className="hero-quetzal-branch" aria-label="Let the quetzal fly" aria-describedby="quetzal-hint" disabled={!inView || wildlife.birdState !== 'ready'} data-state={wildlife.birdState} onClick={wildlife.releaseQuetzal} style={{ left: wildlife.layout?.x ?? -100, top: wildlife.layout?.y ?? -100 }}>
+            <span className="hero-branch-ripple" aria-hidden="true" />
+            <span className="hero-branch-sparkles" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+            <span id="quetzal-hint" className="hero-branch-hint">A little visitor. Tap to discover.</span>
+          </button>
+          <div ref={wildlife.flightRef} className="hero-quetzal-flight" aria-hidden="true" data-flying={wildlife.birdState === 'flying'}><div ref={wildlife.birdRef} className="hero-quetzal-sprite" /></div>
+          <span className="sr-only" role="status">{wildlife.birdState === 'flying' ? 'A quetzal is flying across the landscape.' : wildlife.birdState === 'cooldown' ? 'The quetzal is resting. It will return soon.' : ''}</span>
+        </div>
 
         <motion.div
             data-landscape-layer
@@ -179,7 +198,7 @@ export default function Parallax() {
 
         <motion.div
             data-landscape-layer
-            className="hero-scroll-layer absolute inset-0 z-0"
+            className="hero-scroll-layer absolute inset-0 z-[2]"
             style={{
               backgroundImage:`url(${L5})`,
               backgroundPosition:'bottom',
@@ -194,7 +213,7 @@ export default function Parallax() {
         {/* Keep the foreground attached to the section boundary as the page scrolls. */}
         <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-[2]"
+            className="pointer-events-none absolute inset-0 z-[4]"
             style={{
               backgroundImage:`url(${L6})`,
               backgroundPosition:'bottom',
