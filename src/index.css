@@ -53,6 +53,13 @@ html[data-page-theme="portfolio-ux"] {
   --scrollbar-active: #d8ee8b;
 }
 
+html[data-page-theme="kantera"] {
+  --scrollbar-track: #39291c;
+  --scrollbar-thumb: #b68d5d;
+  --scrollbar-hover: #d1a975;
+  --scrollbar-active: #efca86;
+}
+
 html[data-page-theme="loom"] {
   --scrollbar-track: #efe9dd;
   --scrollbar-thumb: #777e55;

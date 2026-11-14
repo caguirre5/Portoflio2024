@@ -1,6 +1,6 @@
 // Public portfolio summary. Keep client-specific processes and configuration
 // out of both the rendered page and this browser-delivered content module.
-export const projectStoryLinks = { 1: '#/projects/caribbean-goods', 4: '#/projects/loom', 7: '#/projects/portfolio-ux', 19: '#/projects/symma', 20: '#/projects/opeka-pro', 21: '#/projects/pollo-sopero' };
+export const projectStoryLinks = { 1: '#/projects/caribbean-goods', 4: '#/projects/loom', 7: '#/projects/portfolio-ux', 19: '#/projects/symma', 20: '#/projects/opeka-pro', 21: '#/projects/pollo-sopero', 22: '#/projects/kantera' };
 
 export const caribbeanGoods = {
   title: 'Caribbean Goods',

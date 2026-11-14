@@ -7,10 +7,11 @@ import OpekaPro from "./pages/OpekaPro";
 import PolloSopero from "./pages/PolloSopero";
 import PortfolioUX from "./pages/PortfolioUX";
 import Loom from "./pages/Loom";
+import Kantera from "./pages/Kantera";
 
-const projectPages = { '/projects/caribbean-goods': CaribbeanGoods, '/projects/symma': Symma, '/projects/opeka-pro': OpekaPro, '/projects/pollo-sopero': PolloSopero, '/projects/portfolio-ux': PortfolioUX, '/projects/loom': Loom };
-const projectNames = { '/projects/caribbean-goods': 'Caribbean Goods', '/projects/symma': 'Symma', '/projects/opeka-pro': 'Opeka Pro', '/projects/pollo-sopero': 'Pollo Sopero', '/projects/portfolio-ux': 'Portfolio — First UX Exploration', '/projects/loom': 'Loom Coffeehouse' };
-const projectThemes = { '/projects/caribbean-goods': 'caribbean', '/projects/symma': 'symma', '/projects/opeka-pro': 'opeka', '/projects/pollo-sopero': 'pollo', '/projects/portfolio-ux': 'portfolio-ux', '/projects/loom': 'loom' };
+const projectPages = { '/projects/caribbean-goods': CaribbeanGoods, '/projects/symma': Symma, '/projects/opeka-pro': OpekaPro, '/projects/pollo-sopero': PolloSopero, '/projects/portfolio-ux': PortfolioUX, '/projects/loom': Loom, '/projects/kantera': Kantera };
+const projectNames = { '/projects/caribbean-goods': 'Caribbean Goods', '/projects/symma': 'Symma', '/projects/opeka-pro': 'Opeka Pro', '/projects/pollo-sopero': 'Pollo Sopero', '/projects/portfolio-ux': 'Portfolio — First UX Exploration', '/projects/loom': 'Loom Coffeehouse', '/projects/kantera': 'Kantera' };
+const projectThemes = { '/projects/caribbean-goods': 'caribbean', '/projects/symma': 'symma', '/projects/opeka-pro': 'opeka', '/projects/pollo-sopero': 'pollo', '/projects/portfolio-ux': 'portfolio-ux', '/projects/loom': 'loom', '/projects/kantera': 'kantera' };
 const readRoute = () => window.location.hash.startsWith('#/') ? window.location.hash.slice(1) : '/';
 
 export default function App() {

@@ -4,7 +4,7 @@ import "./BackgroundParticles.css";
 
 // Independent low-discrepancy sequences spread every subset across the layer
 // without repeating rows or changing positions when a section rerenders.
-const particles = Array.from({ length: 96 }, (_, index) => ({
+const createParticle = (index) => ({
   id: index,
   left: 3 + (((index + 0.5) * 0.754877666) % 1) * 90,
   top: 4 + (((index + 0.5) * 0.569840291) % 1) * 92,
@@ -14,7 +14,7 @@ const particles = Array.from({ length: 96 }, (_, index) => ({
   rise: 60 + (index % 5) * 20,
   duration: 8 + (index % 5) * 2,
   delay: -(index % 8) * 2,
-}));
+});
 
 export default function BackgroundParticles() {
   const ref = useRef(null);
@@ -24,15 +24,23 @@ export default function BackgroundParticles() {
   const [compact, setCompact] = useState(() => window.matchMedia("(max-width: 767px)").matches);
 
   useEffect(() => {
-    // Maintain the same density when this layer spans several sections.
-    const observer = new ResizeObserver(([entry]) => {
-      setBands(Math.max(1, Math.ceil(entry.contentRect.height / window.innerHeight)));
-    });
+    // Keep lower bands mounted when a project filter shortens the page.
+    const update = () => {
+      const needed = Math.ceil(ref.current.clientHeight / window.innerHeight);
+      setBands((previous) => Math.max(previous, needed));
+    };
+    const observer = new ResizeObserver(update);
     observer.observe(ref.current);
-    return () => observer.disconnect();
+    window.addEventListener('resize', update);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
-  const count = Math.min(particles.length, bands * (compact ? 9 : 18));
+  const density = compact ? 9 : 18;
+  const count = bands * density;
+  const layerParticles = Array.from({ length: count }, (_, index) => createParticle(index));
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 767px)");
@@ -43,7 +51,7 @@ export default function BackgroundParticles() {
 
   return (
     <div ref={ref} aria-hidden="true" className="particle-background pointer-events-none absolute inset-0 z-0 overflow-hidden">
-      {!reducedMotion && particles.slice(0, count).map((particle) => (
+      {!reducedMotion && layerParticles.map((particle, index) => (
         <span
           key={particle.id}
           data-particle-kind={particle.circle ? "circle" : "dot"}
@@ -59,7 +67,7 @@ export default function BackgroundParticles() {
             animationDelay: `${particle.delay}s`,
             animationPlayState: inView ? 'running' : 'paused',
             left: `${particle.left}%`,
-            top: `${particle.top}%`,
+            top: `${Math.floor(index / density) * 100 + particle.top}vh`,
             width: particle.size * (compact ? 0.75 : 1),
             height: particle.size * (compact ? 0.75 : 1),
             background: particle.circle

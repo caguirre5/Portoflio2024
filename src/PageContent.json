@@ -29,8 +29,18 @@
   },
   "work": [
     {
+      "id": 22,
+      "category": "GAME DEVELOPMENT",
+      "year": 2024,
+      "status": "Featured graduation project",
+      "description": "An isometric action RPG where the woods, the maze, and the stories villagers tell can change from one playthrough to the next.",
+      "title": "Kantera",
+      "imagePortrait": "GAME_Kantera"
+    },
+    {
       "id": 21,
       "category": "GAME DEVELOPMENT",
+      "year": 2024,
       "description": "An Overcooked-inspired learning project built in Unity and C#. Step into a playful kitchen and try the browser demo.",
       "title": "Pollo Sopero",
       "imagePortrait": "GAME_Pollo",
@@ -39,7 +49,8 @@
     {
       "id": 20,
       "category": "WEB DEVELOPMENT",
-      "status": "In development",
+      "year": 2026,
+      "activity": "development",
       "description": "A business management platform connecting products, inventory, sales and cash operations. An ongoing full-stack project built with Next.js and Firebase.",
       "title": "Opeka Pro",
       "imagePortrait": "WEB_Opeka",
@@ -48,6 +59,8 @@
     {
       "id": 19,
       "category": "WEB DEVELOPMENT",
+      "year": 2026,
+      "activity": "active",
       "description": "A configurable clinical platform connecting patients, appointments and consultations. Built with Next.js, TypeScript and Firebase.",
       "title": "Symma",
       "imagePortrait": "WEB_Symma",
@@ -56,6 +69,8 @@
     {
       "id": 1,
       "category": "WEB DEVELOPMENT",
+      "year": 2023,
+      "activity": "active",
       "description": "A full-stack web platform for a specialty coffee business, combining a public website with digital experiences for customers and internal teams.",
       "title": "Caribbean Goods",
       "imagePortrait": "WEB_Caribbean",
@@ -83,6 +98,8 @@
     {
       "id": 4,
       "category": "WEB DEVELOPMENT",
+      "year": 2025,
+      "activity": "active",
       "description": "A story-led landing page for Loom Coffeehouse, bringing coffee, craft and human connection together through warm imagery and an earthy visual identity.",
       "title": "Loom Coffeehouse",
       "imagePortrait": "WEB_Loom"
@@ -106,6 +123,8 @@
     {
       "id": 7,
       "category": "UX DESIGN",
+      "year": 2023,
+      "approximateYear": true,
       "description": "My first steps in UX: an early Figma design that became the first web version of this portfolio, before its current redesign.",
       "title": "Portfolio · First UX Exploration",
       "imagePortrait": "UX_Portfolio_1"

@@ -10,10 +10,20 @@
 .work-filters button[aria-pressed='true']::after { opacity: 1; }
 .work-filter-count { font-size: .6rem; color: #8baabd; border: 1px solid #ffffff1a; border-radius: 5px; padding: 1px 5px; }
 .work-filters button:hover { color: #fff; }
-.work-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.work-gallery { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; overflow-anchor: none; }
 .work-project { min-width: 0; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #ffffff1a; border-radius: 24px 24px 24px 7px; background: linear-gradient(135deg, #17374bdb, #0b2438eb); transition: border-color .3s; }
 .work-project:hover, .work-project:focus-within { border-color: color-mix(in srgb, var(--project-accent) 60%, transparent); }
 .work-project--featured { background: radial-gradient(ellipse at 0 0, #907d3f14, transparent 75%), linear-gradient(120deg, #153d3c, #102a38); }
+.work-project--22 { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr); background: linear-gradient(115deg, #1d463d, #142f2f); }
+.work-project--22 .work-preview-stage { padding: 0; }
+.work-project--22 .work-browser { border: none; border-radius: 0; transform: none; box-shadow: none; }
+.work-project--22 .work-browser-chrome, .work-project--22 .work-preview-orbit { display: none; }
+.work-project--22 .work-preview-link { height: 100%; }
+.work-project--22 .work-browser img { aspect-ratio: 2.5; object-fit: cover; height: 100%; }
+.work-project--22:hover .work-browser, .work-project--22:focus-within .work-browser { transform: none; }
+.work-project--22 .work-project-content { padding: clamp(1.15rem, 3vw, 2.5rem); justify-content: center; }
+.work-project--22 h3 { font: 700 clamp(2rem, 4vw, 3.8rem)/1 Georgia, serif; letter-spacing: -.045em; }
+.work-project--22 .work-project-action { margin-top: .25rem; }
 .work-preview-stage { position: relative; min-width: 0; overflow: hidden; padding: 1rem 1rem 0; background: radial-gradient(ellipse at 50% 60%, color-mix(in srgb, var(--project-accent) 12%, transparent), transparent 72%); }
 .work-browser { position: relative; z-index: 1; width: 100%; overflow: hidden; border: 1px solid #ffffff26; border-radius: 10px; background: #0b1c2b; box-shadow: 0 20px 35px #00000026; transform: perspective(900px) rotateY(-3deg) rotateX(2deg); transition: transform .45s cubic-bezier(.22,1,.36,1); }
 .work-project:hover .work-browser, .work-project:focus-within .work-browser { transform: perspective(900px) rotateY(0) rotateX(0) translateY(-3px); }
@@ -26,7 +36,11 @@
 .work-preview-orbit { position: absolute; width: 240px; height: 180px; top: 8%; right: -35px; border: 1px solid color-mix(in srgb, var(--project-accent) 15%, transparent); border-radius: 50%; transform: rotate(-30deg); pointer-events: none; }
 .work-project-content { display: flex; flex-direction: column; flex: 1; min-width: 0; padding: 1.25rem; }
 .work-project-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 1rem; color: var(--project-accent); font-size: 9px; text-transform: uppercase; letter-spacing: .18em; }
-.work-project-meta > span:last-child { opacity: .6; letter-spacing: .05em; font-size: 11px; }
+.work-project-meta time { color: #cfdee8; font-size: .7rem; letter-spacing: .06em; }
+.work-project-activity { align-self: flex-start; margin-top: .65rem; padding: .23rem .55rem; border: 1px solid currentColor; border-radius: 2rem; font-size: .68rem; line-height: 1.3; }
+.work-project-activity--development { color: #bde4ac; }
+.work-project-activity--maintenance { color: #f2d8a2; }
+.work-project-activity--active { color: #a9e2e0; }
 .work-project h3 { font-size: 1.3rem; font-weight: 600; line-height: 1.2; letter-spacing: -.03em; }
 .work-project-description { margin-top: .75rem; margin-bottom: 1rem; color: #c6d6e2; font-size: .8rem; line-height: 1.7; max-width: 480px; }
 .work-project-action { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 1rem; margin-top: auto; border-top: 1px solid #ffffff15; color: #e2edf5; font-size: .8rem; font-weight: 500; }
@@ -40,6 +54,7 @@
  .work-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media(max-width:639px) {
+ .work-project--22 { grid-template-columns: minmax(0, 1fr); }
  .work-section { padding-top: 4rem; padding-bottom: 4rem; }
  .work-gallery { grid-template-columns: minmax(0, 1fr); }
  .work-filters { gap: .4rem 1rem; margin: 1.5rem 0 2rem; }
