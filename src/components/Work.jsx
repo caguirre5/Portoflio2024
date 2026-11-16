@@ -13,9 +13,10 @@ import symma from "../assets/projects/Symma_Preview.svg";
 import opeka from "../assets/projects/Opeka_Workspace.png";
 import pollo from "../assets/projects/Pollo_Menu.png";
 import kantera from "../assets/projects/kantera/valley.webp";
+import folkvanger from "../assets/projects/folkvanger/cover.webp";
 import './Work.css';
 
-const images = { GAME_Kantera: kantera, GAME_Pollo: pollo, WEB_Opeka: opeka, WEB_Symma: symma, WEB_Caribbean: caribbean, WEB_Portfolio_1: portfolioWeb, WEB_ICE: ice, WEB_Loom: loom, UX_Portfolio_1: portfolioUX };
+const images = { GAME_Folkvanger: folkvanger, GAME_Kantera: kantera, GAME_Pollo: pollo, WEB_Opeka: opeka, WEB_Symma: symma, WEB_Caribbean: caribbean, WEB_Portfolio_1: portfolioWeb, WEB_ICE: ice, WEB_Loom: loom, UX_Portfolio_1: portfolioUX };
 const featuredOrder = [19, 1, 4, 22];
 const projectPriority = new Map(featuredOrder.map((id, index) => [id, index]));
 const projects = content.work
@@ -28,7 +29,7 @@ const projects = content.work
 const filters = ['All projects', 'WEB DEVELOPMENT', 'UX DESIGN', 'GAME DEVELOPMENT'];
 const labels = { 'WEB DEVELOPMENT': 'Web development', 'UX DESIGN': 'UX design', 'GAME DEVELOPMENT': 'Game development' };
 const accents = { 22: '#d7f3a1', 21: '#ffd45b', 20: '#edc487', 19: '#b6caff', 1: '#e9c184', 2: '#67e8f9', 3: '#9fd4b7', 4: '#d0c7a0', 7: '#c4b5fd' };
-const activityLabels = { development: 'In development', maintenance: 'In maintenance', active: 'Active' };
+const activityLabels = { development: 'In development', maintenance: 'In maintenance', active: 'Active', paused: 'Paused' };
 
 export default function Work() {
   const [filter, setFilter] = useState('All projects');

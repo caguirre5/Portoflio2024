@@ -1,0 +1,90 @@
+.folkvanger {
+  --folk-ink: #f7f0d5;
+  --folk-muted: #bfd6d2;
+  --folk-gold: #f3ca79;
+  --folk-border: #5c8383;
+  background: #102b35;
+  color: var(--folk-ink);
+}
+.folk-frame { width: min(1120px, calc(100% - clamp(2rem, 8vw, 7rem))); margin-inline: auto; }
+.folk-section { padding-block: clamp(3.5rem, 7vw, 6.75rem); }
+.folk-hero { background: linear-gradient(90deg, #102632f5 0%, #102632d9 36%, #16333b55 100%), var(--folk-sea) center / cover; border-bottom: 3px solid #527c7b; padding-block: 1.5rem clamp(3.5rem, 8vw, 7rem); }
+.folk-hero-grid, .folk-project { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(1.75rem, 5vw, 4rem); }
+.folk-hero-grid { margin-top: clamp(2.5rem, 7vw, 6rem); }
+.folkvanger h1, .folkvanger h2, .folkvanger h3, .folk-tagline { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; }
+.folkvanger h1 { font-size: clamp(2.85rem, 5.9vw, 5.55rem); line-height: 1; letter-spacing: -.06em; outline: none; }
+.folkvanger h2 { font-size: clamp(2.15rem, 4.75vw, 3.8rem); line-height: 1.05; letter-spacing: -.04em; text-wrap: balance; }
+.folk-tagline { font-size: clamp(1.35rem, 2.8vw, 2.12rem); line-height: 1.13; margin-block: .7rem 1rem; }
+.folk-kicker { color: var(--folk-gold); text-transform: uppercase; font-size: .72rem; letter-spacing: .16em; font-weight: 750; margin-bottom: .7rem; }
+.folk-hero-grid p:last-of-type, .folk-loop p, .folk-project p:not(.folk-kicker) { line-height: 1.65; color: var(--folk-muted); }
+.folk-hero-grid p:last-of-type { max-width: 42ch; }
+.folk-cover, .folk-gameplay { padding: .45rem; border: 1px solid var(--folk-border); background: #0c2330; box-shadow: 0 5px 0 #091921, 0 1rem 2.3rem #080e1855; }
+.folk-cover img, .folk-gameplay img, .folk-island img { display: block; width: 100%; height: auto; }
+.folk-button, .folk-back { display: inline-flex; align-items: center; gap: .65rem; width: fit-content; padding: .65rem .9rem; border: 1px solid currentColor; font-size: .84rem; font-weight: 750; }
+.folkvanger .folk-button { background-color: var(--folk-gold); color: #182831; box-shadow: 0 3px 0 #a57b43; }
+.folkvanger .folk-button:hover { background-color: #ffe6ac; }
+.folk-hero .folk-button { margin-top: 1.5rem; }
+.folk-back { background: #102632; color: var(--folk-ink); }
+.folk-back:hover { color: var(--folk-gold); }
+.folkvanger :is(a, button):focus-visible { outline: 2px solid #fff3d4; outline-offset: 4px; }
+.folk-section-heading { margin-bottom: 1.5rem; }
+.folk-island img { filter: drop-shadow(0 1rem 1.25rem #06182080); }
+.folk-island figcaption { margin-top: .65rem; color: var(--folk-muted); font-size: .78rem; text-align: center; }
+.folk-loop { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin-top: 1.25rem; }
+.folk-loop li { display: flex; gap: .8rem; align-items: center; padding: 1rem; border: 1px solid #4c7778; background: #173c46; }
+.folk-loop img { width: clamp(3.25rem, 6vw, 4.6rem); height: 5rem; object-fit: contain; flex-shrink: 0; }
+.folk-loop h3 { font-size: 1.35rem; margin-bottom: .25rem; }
+.folk-loop p { font-size: .9rem; }
+.folk-play { background: #091d27; border-block: 1px solid #4c7778; }
+.folk-gameplay { position: relative; }
+.folk-gameplay img { filter: brightness(.8); }
+.folkvanger button.folk-launch {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .8rem 1.15rem;
+  border: 2px solid #fff0bd;
+  background-color: var(--folk-gold);
+  color: #182831;
+  box-shadow: 0 .35rem 0 #7e5a30;
+  white-space: nowrap;
+  font-weight: 750;
+}
+.folkvanger button.folk-launch:hover { background-color: #ffe6ac; }
+.folk-dialog {
+  box-sizing: border-box;
+  width: min(100% - 1.25rem, 980px, calc((100dvh - 8rem) * 16 / 9));
+  max-height: 95dvh;
+  max-width: none;
+  padding: 0;
+  margin: auto;
+  border: 1px solid var(--folk-border);
+  background: #102b35;
+  color: var(--folk-ink);
+}
+.folk-dialog::backdrop { background: #050f16de; }
+.folkvanger:has(.folk-dialog[open]) { overscroll-behavior: contain; }
+body:has(.folk-dialog[open]) { overflow: hidden; }
+.folk-dialog-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; padding: .65rem .85rem; font-size: .82rem; }
+.folk-dialog h2 { font-size: 1.25rem; }
+.folk-dialog-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+.folk-dialog a { color: var(--folk-gold); text-decoration: underline; text-underline-offset: .2em; }
+.folk-dialog iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #091d27; }
+.folk-dialog:fullscreen { width: 100%; max-height: none; display: flex; flex-direction: column; }
+.folk-dialog:fullscreen iframe { flex: 1; min-height: 0; }
+.folk-play-heading { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.15rem; margin-bottom: 1.35rem; }
+#folk-play { outline: none; scroll-margin-top: 1.25rem; }
+.folk-project { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.folk-project p + p, .folk-project h2 + p { margin-top: .9rem; }
+.folk-field-notes { border: 1px solid #c6a96f; background: #f1e0b6; color: #243940; padding: clamp(1.25rem, 4vw, 2rem); }
+.folk-field-notes div + div { border-top: 1px solid #aa966d; margin-top: 1rem; padding-top: 1rem; }
+.folk-field-notes dt { font-weight: 750; margin-bottom: .35rem; }
+.folk-status { display: inline-block; background: #213d48; color: #fff2c9; padding: .13rem .55rem; margin-bottom: .45rem; }
+.folk-project .folk-field-notes p { color: #33464b; }
+.folk-footer { border-top: 1px solid #4c7778; padding-block: 1.25rem 2rem; }
+@media (max-width: 760px) {
+  .folk-hero-grid, .folk-project, .folk-loop { grid-template-columns: minmax(0, 1fr); }
+}

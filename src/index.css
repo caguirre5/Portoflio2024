@@ -53,6 +53,13 @@ html[data-page-theme="portfolio-ux"] {
   --scrollbar-active: #d8ee8b;
 }
 
+html[data-page-theme="folkvanger"] {
+  --scrollbar-track: #102b35;
+  --scrollbar-thumb: #c6a96f;
+  --scrollbar-hover: #f3ca79;
+  --scrollbar-active: #ffe6ac;
+}
+
 html[data-page-theme="kantera"] {
   --scrollbar-track: #39291c;
   --scrollbar-thumb: #b68d5d;

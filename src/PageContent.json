@@ -29,6 +29,15 @@
   },
   "work": [
     {
+      "id": 23,
+      "category": "GAME DEVELOPMENT",
+      "status": "Local game jam winner",
+      "activity": "paused",
+      "description": "A 2D strategy game about rebuilding an island kingdom and defending it from goblin waves. Built with Juan Diego Ávila.",
+      "title": "Folkvanger",
+      "imagePortrait": "GAME_Folkvanger"
+    },
+    {
       "id": 22,
       "category": "GAME DEVELOPMENT",
       "year": 2024,

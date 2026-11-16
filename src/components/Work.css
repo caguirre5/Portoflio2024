@@ -41,6 +41,7 @@
 .work-project-activity--development { color: #bde4ac; }
 .work-project-activity--maintenance { color: #f2d8a2; }
 .work-project-activity--active { color: #a9e2e0; }
+.work-project-activity--paused { color: #f2d8a2; }
 .work-project h3 { font-size: 1.3rem; font-weight: 600; line-height: 1.2; letter-spacing: -.03em; }
 .work-project-description { margin-top: .75rem; margin-bottom: 1rem; color: #c6d6e2; font-size: .8rem; line-height: 1.7; max-width: 480px; }
 .work-project-action { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 1rem; margin-top: auto; border-top: 1px solid #ffffff15; color: #e2edf5; font-size: .8rem; font-weight: 500; }
